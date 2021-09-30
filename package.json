@@ -1,6 +1,6 @@
 {
   "name": "commitlint-plugin-selective-scope",
-  "version": "0.0.0-semantically-released",
+  "version": "1.0.0",
   "description": "Limit scopes per type with regexp and plain text",
   "main": "index.js",
   "scripts": {
