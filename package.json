@@ -1,0 +1,68 @@
+{
+  "name": "commitlint-plugin-selective-scope",
+  "version": "0.0.0-semantically-released",
+  "description": "Limit scopes per type with regexp and plain text",
+  "main": "index.js",
+  "scripts": {
+    "commit": "git-cz",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix",
+    "lint:active": "eslint-nibble .",
+    "test": "jest --config ./jest.config.js",
+    "test:coverage": "npm test -- --coverage && cat ./coverage/lcov.info | coveralls",
+    "semantic-release": "semantic-release",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged"
+  },
+  "keywords": [
+    "commitlint",
+    "commitlint-plugin",
+    "commitlint-plugin-selective-scope"
+  ],
+  "author": {
+    "name": "Rıdvan Altun",
+    "email": "ridvanaltun@outlook.com",
+    "url": "https://ridvanaltun.github.io/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ridvanaltun/commitlint-plugin-selective-scope.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ridvanaltun/commitlint-plugin-selective-scope/issues"
+  },
+  "homepage": "https://github.com/ridvanaltun/commitlint-plugin-selective-scope#readme",
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^13.2.0",
+    "@commitlint/config-conventional": "^13.2.0",
+    "@commitlint/cz-commitlint": "^13.2.0",
+    "@semantic-release/changelog": "^6.0.0",
+    "@semantic-release/git": "^10.0.0",
+    "commitizen": "^4.2.4",
+    "coveralls": "^3.1.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-nibble": "^7.0.0",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "husky": "^7.0.2",
+    "jest": "^27.2.4",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.4.1",
+    "semantic-release": "^18.0.0"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  }
+}

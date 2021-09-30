@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - 'stable'
+before_script:
+  - npm prune
+jobs:
+  include:
+    - stage: test
+      script:
+        - echo "Linting ..." && npm run lint
+        - echo "Code Coverage and Test ..." && npm run test:coverage
+after-success:
+  - echo "Semantic Release Deployment .."
+  - npm run semantic-release
+branches:
+  only:
+    - master
