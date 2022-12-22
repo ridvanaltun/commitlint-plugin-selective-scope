@@ -30,7 +30,7 @@ module.exports = {
           allowedScopes.findIndex(s => {
             if (
               typeof ctx.scope === 'string' &&
-              Object.prototype.toString.call() === '[object RegExp]'
+              Object.prototype.toString.call(s) === '[object RegExp]'
             ) {
               return ctx.scope.match(s)
             }
