@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/ridvanaltun/commitlint-plugin-selective-scope/compare/v1.0.0...v1.0.1) (2022-12-22)
+
+
+### Bug Fixes
+
+* correctly check for RegExp ([af6d426](https://github.com/ridvanaltun/commitlint-plugin-selective-scope/commit/af6d426cd08a3c7bbbc0a47f4e8ace13210ad8f0))
+
 # 1.0.0 (2021-09-30)
 
 
