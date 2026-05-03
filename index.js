@@ -1,3 +1,13 @@
+function normalizeScope(scope) {
+  if (scope == null) {
+    return null
+  }
+  if (typeof scope === 'string' && scope.trim() === '') {
+    return null
+  }
+  return scope
+}
+
 module.exports = {
   rules: {
     'selective-scope': (ctx, applicable, rule) => {
@@ -5,6 +15,7 @@ module.exports = {
         return [false, 'the "allowed-scopes" rule does not support "never"']
       }
 
+      const scope = normalizeScope(ctx.scope)
       const allowedScopes = rule[ctx.type]
 
       // If the type does not appear in the rule config, allow any scope or no scope
@@ -15,7 +26,7 @@ module.exports = {
       if (Array.isArray(allowedScopes)) {
         // If the type maps to an empty array in the rule config, scope it not allowed
         if (allowedScopes.length === 0) {
-          if (ctx.scope != null) {
+          if (scope != null) {
             return [
               false,
               `commit messages with type "${ctx.type}" must not specify a scope`
@@ -29,14 +40,14 @@ module.exports = {
         if (
           allowedScopes.findIndex(s => {
             if (
-              typeof ctx.scope === 'string' &&
+              typeof scope === 'string' &&
               Object.prototype.toString.call(s) === '[object RegExp]'
             ) {
-              return ctx.scope.match(s)
+              return scope.match(s)
             }
 
             // Equality comparison works for both strings and null
-            return s === ctx.scope
+            return s === scope
           }) !== -1
         ) {
           return [true]

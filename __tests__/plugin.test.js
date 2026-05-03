@@ -58,6 +58,40 @@ describe('commitlintPluginSelectiveScope', () => {
     ).toBe(false)
   })
 
+  // https://github.com/ridvanaltun/commitlint-plugin-selective-scope/issues/2
+  // @commitlint/parse normalizes bare missing scope to null, but `type( ): subject` yields scope " ".
+  it('should treat whitespace-only scope as absent when the type maps to an empty array', () => {
+    expect(
+      commitlintPluginSelectiveScopeResolverWrapped(
+        { scope: ' ', type: 'perf' },
+        { perf: [] }
+      )[0]
+    ).toBe(true)
+
+    expect(
+      commitlintPluginSelectiveScopeResolverWrapped(
+        { scope: '\t\n', type: 'perf' },
+        { perf: [] }
+      )[0]
+    ).toBe(true)
+
+    expect(
+      commitlintPluginSelectiveScopeResolverWrapped(
+        { scope: '', type: 'perf' },
+        { perf: [] }
+      )[0]
+    ).toBe(true)
+  })
+
+  it('should treat whitespace-only scope as absent for optional scope (null in list)', () => {
+    expect(
+      commitlintPluginSelectiveScopeResolverWrapped(
+        { scope: '  ', type: 'ci' },
+        { ci: [null, 'codebuild'] }
+      )[0]
+    ).toBe(true)
+  })
+
   describe('should only allow scopes defined if the type appears in the rule with a non-empty array', () => {
     it('should properly match a string literal', () => {
       expect(

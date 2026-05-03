@@ -34,9 +34,9 @@
   "homepage": "https://github.com/ridvanaltun/commitlint-plugin-selective-scope#readme",
   "license": "MIT",
   "devDependencies": {
-    "@commitlint/cli": "^13.2.0",
-    "@commitlint/config-conventional": "^13.2.0",
-    "@commitlint/cz-commitlint": "^13.2.0",
+    "@commitlint/cli": "^20.5.3",
+    "@commitlint/config-conventional": "^20.5.3",
+    "@commitlint/cz-commitlint": "^20.5.3",
     "@semantic-release/changelog": "^6.0.0",
     "@semantic-release/git": "^10.0.0",
     "commitizen": "^4.2.4",
