@@ -4,7 +4,7 @@
 [![npm downloads](https://img.shields.io/npm/dt/commitlint-plugin-selective-scope.svg)](https://npmjs.com/package/commitlint-plugin-selective-scope)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
-[![Build Status](https://app.travis-ci.com/ridvanaltun/commitlint-plugin-selective-scope.svg?token=iAVYW6MYCEy3Fw2CACLV&branch=master)](https://app.travis-ci.com/ridvanaltun/commitlint-plugin-selective-scope)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/ridvanaltun/commitlint-plugin-selective-scope/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/ridvanaltun/commitlint-plugin-selective-scope/tree/master)
 [![Coverage Status](https://coveralls.io/repos/github/ridvanaltun/commitlint-plugin-selective-scope/badge.svg?branch=master)](https://coveralls.io/github/ridvanaltun/commitlint-plugin-selective-scope?branch=master)
 [![license](https://img.shields.io/npm/l/commitlint-plugin-selective-scope.svg)](https://github.com/ridvanaltun/commitlint-plugin-selective-scope/blob/master/LICENSE)
 

@@ -1,0 +1,50 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5.2.0
+
+jobs:
+  test:
+    docker:
+      - image: cimg/node:17.9
+    resource_class: small
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: npm
+      - run:
+          name: Prune extraneous packages
+          command: npm prune
+      - run:
+          name: Lint
+          command: npm run lint
+      - run:
+          name: Test with coverage
+          command: npm run test:coverage
+
+  release:
+    docker:
+      - image: cimg/node:17.9
+    resource_class: small
+    steps:
+      - checkout
+      - run:
+          name: Fetch git history for semantic-release
+          command: |
+            git fetch --unshallow 2>/dev/null || git fetch --depth=1000
+      - node/install-packages:
+          pkg-manager: npm
+      - run:
+          name: Semantic release
+          command: npm run semantic-release
+
+workflows:
+  build-and-release:
+    jobs:
+      - test
+      - release:
+          requires:
+            - test
+          filters:
+            branches:
+              only: master
