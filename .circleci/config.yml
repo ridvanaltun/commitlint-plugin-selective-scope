@@ -6,7 +6,7 @@ orbs:
 jobs:
   test:
     docker:
-      - image: cimg/node:17.9
+      - image: cimg/node:20.18
     resource_class: small
     steps:
       - checkout
@@ -24,7 +24,7 @@ jobs:
 
   release:
     docker:
-      - image: cimg/node:17.9
+      - image: cimg/node:20.18
     resource_class: small
     steps:
       - checkout
