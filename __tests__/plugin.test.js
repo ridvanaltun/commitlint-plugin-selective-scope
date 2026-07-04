@@ -136,6 +136,38 @@ describe('commitlintPluginSelectiveScope', () => {
       ).toBe(true)
     })
 
+    // @commitlint/load uses es-toolkit merge, which turns config `[null]` into `[undefined]`.
+    it('should treat undefined in the allowed list as a no-scope marker (commitlint load)', () => {
+      expect(
+        commitlintPluginSelectiveScopeResolverWrapped(
+          { scope: null, type: 'ci' },
+          { ci: [undefined] }
+        )[0]
+      ).toBe(true)
+
+      expect(
+        commitlintPluginSelectiveScopeResolverWrapped(
+          { scope: undefined, type: 'ci' },
+          { ci: [undefined] }
+        )[0]
+      ).toBe(true)
+
+      expect(
+        commitlintPluginSelectiveScopeResolverWrapped(
+          { scope: null, type: 'ci' },
+          { ci: [undefined, 'codebuild'] }
+        )[0]
+      ).toBe(true)
+
+      const [ok, message] = commitlintPluginSelectiveScopeResolverWrapped(
+        { scope: 'github', type: 'ci' },
+        { ci: [undefined, 'codebuild'] }
+      )
+      expect(ok).toBe(false)
+      expect(message).not.toContain('"undefined"')
+      expect(message).toContain('"codebuild"')
+    })
+
     it('should match scope if provided', () => {
       expect(
         commitlintPluginSelectiveScopeResolverWrapped(
