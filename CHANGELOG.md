@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/ridvanaltun/commitlint-plugin-selective-scope/compare/v1.0.2...v1.0.3) (2026-07-26)
+
+
+### Bug Fixes
+
+* treat null & undefined as no-scope markers ([e1754c0](https://github.com/ridvanaltun/commitlint-plugin-selective-scope/commit/e1754c0ec564eceb181706519a59abb4665ed01a))
+
 ## [1.0.2](https://github.com/ridvanaltun/commitlint-plugin-selective-scope/compare/v1.0.1...v1.0.2) (2026-05-03)
 
 
